@@ -101,6 +101,14 @@ public partial class Canvas : Node2D
             y = Mathf.Clamp(y, 0, Dimensions.Y - 1);
             // GD.Print(position);
             // Pixels[x,y].NextColor = Pixels[x, y].NextColor.Blend(agent.Color);
+            Color color = Pixels[x, y].NextColor;
+            if (!color.IsEqualApprox(Colors.Black))
+            {
+                color.S = 1;
+                color.V = 1;
+                agent.Color = agent.Color.Blend(color);
+            }
+
             Pixels[x, y].NextColor = agent.Color;
             // GD.Print(agent.Color, " | ", Pixels[x, y].NextColor);
         }
