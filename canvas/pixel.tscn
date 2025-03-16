@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hokfd"]
 
 [node name="Pixel" type="Area2D"]
+modulate = Color(0, 0, 0, 1)
 script = ExtResource("1_kda15")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

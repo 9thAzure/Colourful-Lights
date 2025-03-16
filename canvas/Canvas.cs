@@ -44,8 +44,11 @@ public partial class Canvas : Node2D
                 Pixels[x, y] = instance;
             }
         }
-        
-        AddAgent();
+
+        for (int i = 0; i < 3; i++)
+        {
+            AddAgent();
+        }
     }
 
     public void AddAgent()
@@ -61,7 +64,7 @@ public partial class Canvas : Node2D
     }
     public override void _Process(double delta)
     {
-        GD.Print("fps: ", 1 / delta);
+        // GD.Print("fps: ", 1 / delta);
         foreach (Agent agent in agents)
         {
             Vector2 windowSize = GetWindow().Size;
@@ -69,21 +72,25 @@ public partial class Canvas : Node2D
             if (position.X < 0)
             {
                 position.X += windowSize.X;
+                agent.Velocity = agent.Velocity.Rotated(GD.Randf());
             }
 
             if (position.X >= windowSize.X)
             {
                 position.X -= windowSize.X;
+                agent.Velocity = agent.Velocity.Rotated(GD.Randf());
             }
 
             if (position.Y < 0)
             {
                 position.Y += windowSize.Y;
+                agent.Velocity = agent.Velocity.Rotated(GD.Randf());
             }
 
             if (position.Y >= windowSize.Y)
             {
                 position.Y -= windowSize.Y;
+                agent.Velocity = agent.Velocity.Rotated(GD.Randf());
             }
 
             agent.Position = position;
