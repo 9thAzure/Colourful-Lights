@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://be10td85g1rq1"]
+
+[ext_resource type="Script" uid="uid://roobg0q1b6q5" path="res://canvas/Pixel.cs" id="1_kda15"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hokfd"]
+
+[node name="Pixel" type="Area2D"]
+script = ExtResource("1_kda15")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hokfd")
